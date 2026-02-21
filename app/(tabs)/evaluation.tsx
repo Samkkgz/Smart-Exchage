@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useFocusEffect } from "expo-router";
 import React from "react";
 import { View, Text, TouchableOpacity, FlatList } from "react-native";
@@ -28,10 +28,6 @@ export default function EvaluationScreen() {
       setLoading(false);
     }
   }, [defaultCurrency]);
-
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
 
   useFocusEffect(
     React.useCallback(() => {
