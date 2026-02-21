@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
 import { View, Text, TouchableOpacity, ScrollView, TextInput, Modal } from "react-native";
 
@@ -115,9 +115,6 @@ export default function TrendsScreen() {
     }, [loadData]),
   );
 
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
 
   const handleTimeRangeChange = async (range: TimeRange) => {
     setTimeRange(range);

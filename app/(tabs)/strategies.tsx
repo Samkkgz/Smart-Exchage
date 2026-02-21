@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useFocusEffect } from "expo-router";
 import React from "react";
 import { View, Text, TouchableOpacity, TextInput, Modal, FlatList, Alert } from "react-native";
@@ -76,10 +76,6 @@ export default function StrategiesScreen() {
       setLoading(false);
     }
   }, [defaultCurrency]);
-
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -210,7 +206,7 @@ export default function StrategiesScreen() {
         ) : (
           <FlatList
             data={strategies}
-            keyExtractor={(item) => item.id || Math.random().toString()}
+            keyExtractor={(item, index) => item.id ?? `${item.name}-${index}`}
             contentContainerStyle={{ padding: 16, gap: 12 }}
             renderItem={({ item }) => (
               <View className={`rounded-lg p-4 ${getStatusColor(item.status)}`}>

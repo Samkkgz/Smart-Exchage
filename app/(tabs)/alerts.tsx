@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useFocusEffect } from "expo-router";
 import React from "react";
 import { View, Text, TouchableOpacity, TextInput, Modal, FlatList, Alert, ScrollView } from "react-native";
@@ -55,9 +55,6 @@ export default function AlertsScreen() {
     }
   }, [defaultCurrency]);
 
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
 
   useFocusEffect(
     React.useCallback(() => {
